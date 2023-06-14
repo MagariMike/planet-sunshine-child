@@ -2,8 +2,16 @@ import React from 'react'
 import "../../styles/archive.css"
 import ImageTile from '../ImageTile'
 import NavBar from '../NavBar'
+import UploadForm from '../UploadForm'
+
+// import { useEffect, useState } from "react"
+// import { db } from '../firebase/config'
+// import { collection, getDocs } from 'firebase/firestore'
+
+
 
 const Archive = () => {
+
   return (
    
     <div id='archive-container'>
@@ -13,15 +21,9 @@ const Archive = () => {
           <button id="search-button"type="button">Search</button>
         </div>
         <div id="image-tile-container">
-          <ImageTile/>
-          <ImageTile/>
-          <ImageTile/>
-          <ImageTile/>
-          <ImageTile/>
-          <ImageTile/>
-          <ImageTile/>
-          <ImageTile/>
-          <ImageTile/>
+
+          <UploadForm/>
+        
         </div>
     </div>
         
