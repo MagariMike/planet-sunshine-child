@@ -3,6 +3,7 @@ import ProgressBar from './ProgressBar';
 import "../styles/upload-form.css"
 
 const UploadForm = () => {
+  
 
     const [ file, setFile ] = useState(null);
     const [ error, setError ] = useState(null);
@@ -23,6 +24,7 @@ const UploadForm = () => {
   return (
     <form id="upload-form">
         <input type="file" onChange={changeHandler}></input>
+    
         <div>
             <div className='output'>
                 { error && <div className='error'>{error}</div>}
