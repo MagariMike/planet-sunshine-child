@@ -25,7 +25,7 @@ const UploadForm = () => {
     //     }
     // };
     const [ imageUpload, setImageUpload ] = useState(null)
-
+    const [progress, setProgress ] = useState(0)
     const uploadImage = (e) => { 
 
         let file = e.target.files[0];
@@ -33,15 +33,16 @@ const UploadForm = () => {
         const uploadTask = uploadBytesResumable(fileRef, file)
 
        uploadTask.on('state_changed', (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes * 100)
-        console.log('Upload is ' + progress + '% done' )
+        const percentage = (snapshot.bytesTransferred / snapshot.totalBytes * 100)
+        setProgress(percentage)
+        console.log('Upload is ' + percentage + '% done' )
        })
 
     }
   return (
     <form id="upload-form">
-        <input type="file" onChange={uploadImage}></input>
-        
+        <input type="file" accept="image/png, image/jpeg" onChange={uploadImage}></input>
+        {progress}
     
         {/* <div>
             <div className='output'>
