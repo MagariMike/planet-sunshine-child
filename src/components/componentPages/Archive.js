@@ -20,11 +20,11 @@ const Archive = () => {
           <input id="search-bar"input type="text"></input> 
           <button id="search-button"type="button">Search</button>
         </div> */}
-        <div id="image-tile-container">
+       
 
           <UploadForm/>
         
-        </div>
+        
     </div>
         
     
