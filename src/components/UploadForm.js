@@ -2,15 +2,13 @@ import React, { useState } from 'react'
 import ProgressBar from './ProgressBar';
 import { storage } from './firebase/config'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
-
 import "../styles/upload-form.css"
-import { async } from '@firebase/util';
+
 
 const UploadForm = () => {
 
     
     const [progress, setProgress ] = useState(0)
-    const [ selectedImage, setSelectedImage ] = useState(null)
     const [ url, setUrl ] = useState(null)
     const [ error, setError ] = useState(null)
     
@@ -47,18 +45,8 @@ const UploadForm = () => {
     <form id="upload-form">
         <input type="file" accept="image/png, image/jpeg" onChange={uploadImage}></input>
        
-        {/* {progress} */}
-        { progress } 
+        <div>{ progress } </div>
     
-
-    
-        <div>
-            <div className='output'>
-                {/* { error && <div className='error'>{error}</div>} */}
-                {/* { file ? <div>{file.name}</div> : 'please choose a file'} */}
-                {/* { file && <ProgressBar file={file} setFile={setFile}/> } */}
-            </div>
-        </div>
     </form>
   )
 }
