@@ -1,0 +1,8 @@
+#upload-form {
+    display: flex;
+    justify-content: center;
+}
+
+.output {
+    margin: auto;
+}
