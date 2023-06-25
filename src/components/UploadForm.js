@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ProgressBar from './ProgressBar';
 import { storage } from './firebase/config'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import "../styles/upload-form.css"
@@ -15,8 +14,8 @@ const UploadForm = () => {
     
     const uploadImage = (e) => { 
 
-        let file = e.target.files[0];
-        let fileRef = ref(storage, `/${file.name}`)
+        const file = e.target.files[0];
+        const fileRef = ref(storage, `/${file.name}`)
         const uploadTask = uploadBytesResumable(fileRef, file)
 
         uploadTask.on('state_changed', (snapshot) => {
