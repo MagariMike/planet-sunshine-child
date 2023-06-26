@@ -7,7 +7,7 @@ import "../styles/image-tile.css"
 const ImageTile = () => {
 
 
- 
+
 
 
   return (

@@ -11,18 +11,18 @@ import UploadForm from '../UploadForm'
 const Archive = () => {
 
   return (
-   
-    <div id='archive-container'>
-        <NavBar/>
-        
-       
 
-          <UploadForm/>
-        
-        
+    <div id='archive-container'>
+      <NavBar />
+
+
+
+      <UploadForm />
+
+
     </div>
-        
-    
+
+
   )
 }
 
