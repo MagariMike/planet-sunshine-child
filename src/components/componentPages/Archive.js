@@ -1,8 +1,7 @@
-import React from 'react'
-import "../../styles/archive.css"
-import ImageTile from '../ImageTile'
-import NavBar from '../NavBar'
-import UploadForm from '../UploadForm'
+import React from "react";
+import "../../styles/archive.css";
+import NavBar from "../NavBar";
+import UploadForm from "../UploadForm";
 
 
 
@@ -10,20 +9,20 @@ import UploadForm from '../UploadForm'
 
 const Archive = () => {
 
-  return (
+    return (
 
-    <div id='archive-container'>
-      <NavBar />
-
-
-
-      <UploadForm />
+        <div id='archive-container'>
+            <NavBar />
 
 
-    </div>
+
+            <UploadForm />
 
 
-  )
-}
+        </div>
 
-export default Archive
+
+    );
+};
+
+export default Archive;
