@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Planet Sunshine Child 🌍☀️
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
+
+Planet Sunshine Child is my first project after graduating from the Command Shift coding bootcamp, and I wanted to build something practical that is useful in a real world setting. This led me to collaborate with the professional artist "Sunshinechild" (@sun)
 
 ## Available Scripts
 
