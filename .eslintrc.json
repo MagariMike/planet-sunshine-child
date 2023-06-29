@@ -23,6 +23,7 @@
   "rules": {
     "semi": "warn",
     "quotes": ["warn", "double"],
-    "indent": ["warn", "tab"]
+    "indent": ["warn", "tab"],
+    "no-unused-vars": 0
   }
 }
