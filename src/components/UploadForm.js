@@ -11,35 +11,36 @@ const UploadForm = () => {
 
 	const handleChange = (e) => {
 		setFile(e.target.files[0]);
-		console.log(file);
+		console.log(file, file.name);
 	};
 
 	const uploadImage = (e) => {
-		if(!file){
-			alert("Please attach a file");
-		}
 		const storageRef = ref(storage, `/${file.name}`);
 		const uploadTask = uploadBytesResumable(storageRef, file);
 
-		uploadTask.on(
-			"state_changed",
-			(snapshot) => {
-				const progress =
-					(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-				setUploadProgress(progress);
-				console.log(progress);
-			},
-			() => {
-				// getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
-				// 	console.log("Download Url:", downloadUrl);
-				// });
+		if (!file) {
+			alert("Please attach a file");
+		} else {
+			uploadTask.on(
+				"state_changed",
+				(snapshot) => {
+					const progress =
+						(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+					setUploadProgress(progress);
+					console.log(progress);
+				},
+				() => {
+					getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
+						console.log("Download Url:", downloadUrl);
+					});
 
-				getDownloadURL(ref(storage, `/${file.name}`)).then((url) => {
-					// setUrl(url);
-					console.log(url);
-				});
-			}
-		);
+					// getDownloadURL(ref(storage, `/${file.name}`)).then((url) => {
+					// 	// setUrl(url);
+					// 	console.log(url);
+					// });
+				}
+			);
+		}
 
 		// getDownloadURL(ref(storage, `/${file.name}`)).then((url) => {setUrl(url);
 		// 	console.log(url);
