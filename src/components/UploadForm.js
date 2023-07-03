@@ -5,15 +5,15 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const UploadForm = () => {
 	const [file, setFile] = useState();
+	const [progress, setProgress] = useState(0);
+	const [url, setUrl] = useState(null);
+	const [error, setError] = useState(null);
 
 	const handleChange = (e) => {
 		setFile(e.target.files[0]);
 	};
-	if (file) {
-		console.log(file.name);
-	}
 
-	const uploadImage = (e) => {
+	const uploadImage = () => {
 		const fileRef = ref(storage, `/${file.name}`);
 		const uploadTask = uploadBytesResumable(fileRef, file);
 
@@ -22,17 +22,17 @@ const UploadForm = () => {
 			(snapshot) => {
 				const percentage =
 					(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-				// setProgress(percentage);
+				setProgress(percentage);
 				console.log("Upload is " + percentage + "% done");
 			},
 
 			getDownloadURL(ref(storage, `/${file.name}`))
 				.then((url) => {
-					// setUrl(url);
+					setUrl(url);
 					console.log(url);
 				})
 				.catch((err) => {
-					// setError(err);
+					setError(err);
 				})
 		);
 	};
@@ -44,7 +44,7 @@ const UploadForm = () => {
 				onChange={handleChange}
 			></input>
 			<button onClick={uploadImage}>Upload</button>
-			
+			<div>{progress}{url}</div>
 		</div>
 	);
 };
