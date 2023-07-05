@@ -1,7 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { storage } from "./firebase/config";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import {
+	ref,
+	uploadBytesResumable,
+	getDownloadURL,
+	getStorage,
+} from "firebase/storage";
 
 const UploadForm = () => {
 	const [file, setFile] = useState();
@@ -27,8 +32,8 @@ const UploadForm = () => {
 			},
 
 			getDownloadURL(ref(storage, `/${file.name}`))
-				.then((url) => {
-					setUrl(url);
+				.then(async (url) => {
+					await setUrl(url);
 					console.log(url);
 				})
 				.catch((err) => {
@@ -44,7 +49,10 @@ const UploadForm = () => {
 				onChange={handleChange}
 			></input>
 			<button onClick={uploadImage}>Upload</button>
-			<div>{progress}{url}</div>
+			<div>
+				{progress}
+				{url}
+			</div>
 		</div>
 	);
 };
